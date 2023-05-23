@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>One page site</title>
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="stylesheet" href="css/slick.css"> <!--Карусель-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <span class="logo">Washoo</span> <!-- Логотип -->
+        <!-- Навигация (меню) -->
+        <div class="nav">   
+            <a href="#">Main</a>
+            <a href="#">About Us</a>
+            <a href="#">Services</a>
+        </div>
+
+        <!-- Кнопка выезжающего справа меню -->
+        <span class="menu" id="show-menu">   
+            <!-- https://fontawesome.com/icons/bars?f=classic&s=solid -->
+            <!-- <img src="img/menu-192.png" alt="" width="25px"> -->
+            <!-- <img src="img/bars-solid.svg" alt="menu-bar-img" width="25px">   -->
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg> -->
+            <!-- ! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <i class="fas fa-bars"></i>
+        </span>
+    </header>
+
+    <!-- Меню для кнопки "меню" -->
+    <div id="hidden-menu">
+        <span class="close">
+            <i class="fas fa-times"></i>
+        </span>
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#">Main</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Subscribe</a></li>
+        </ul>
+    </div>
+
+    <section class="full-page">
+        <h1>Washoo - convinented service for everybody</h1>
+        <h3>fast, easy, convenient, innovationed </h3>
+        <button><span>Learn more</span> <img src="img/arrow-192.png" alt="" width="30px"></button>
+    </section>
+
+    <section class="features">
+        <div>
+            <img src="img/fast-icon.png" alt="">
+            <h4>Fast</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Eum, necessitatibus?</p>
+        </div>
+
+        <div>
+            <img src="img/cool-icon.png" alt="">
+            <h4>Cool</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Eum, necessitatibus?</p>
+        </div>
+        
+        <div>
+            <img src="img/light-icon.png" alt="">
+            <h4>Easy</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Eum, necessitatibus?</p>
+        </div>
+
+    </section>
+
+    <!-- Карусель -->
+    <section class="gallery">
+        <h2>Some pictures</h2>
+        <div id="slider">
+            <div><img src="https://itproger.com/img/courses/1677920545.jpg" alt=""></div>
+            <div><img src="https://itproger.com/img/courses/1637133308.jpg" alt=""></div>
+            <div><img src="https://itproger.com/img/courses/1622795296.jpg" alt=""></div>
+            <div><img src="https://itproger.com/img/courses/1550320843.jpg" alt=""></div>
+        </div>
+
+    </section>
+
+    <section class="bg-fixed">
+        <h3>Subscribe form</h3>
+        <input type="email" placeholder="Enter email">
+        <button><span>Subscribe</span><img src="img/arrow-192.png" alt="" width="30px"></button>
+    </section>
+
+    <footer>
+        <div class="up-btn">
+            <img src="img/arrow_up-192.png" alt="" width="50px">
+        </div> 
+        <p>All rights reserved &copy;</p>
+        <div class="social">
+            <div><i class="fab fa-youtube"></i></div>
+            <div><i class="fab fa-facebook-f"></i></div>
+            <div><i class="fab fa-twitter"></i></div>
+        </div>
+    </footer> 
+
+    <!-- Первый способ с  https://developers.google.com/speed/libraries/-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Второй способ скачать с официального сайта официальный сайт: jQuery
+    в папку js/jquery-3.6.4.min.js  -->
+    <!-- <script src="js/jquery-3.6.4.min.js"></script> -->
+    
+    <!-- функционал нужно прописывать после подключения -->
+    <script src="js/slick.min.js"></script> <!--Карусель-->
+    <script src="js/site.js"></script>
+    
+    
+</body>
+</html>

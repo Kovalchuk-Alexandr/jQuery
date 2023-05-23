@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <!-- <link rel="stylesheet" href="css/f_comments.css"> -->
+</head>
+<body>
+
+    <div id="block">test</div>
+    <div style="background: green; padding: 10px;"></div>
+    <p class="txt">1</p>
+    <p class="txt">2</p>
+    <p class="txt">3</p>
+    <p class="txt">Text</p>
+    <span class="txt">4
+        <div class="block">div test</div>
+    </span>
+
+    <!-- Первый способ с  https://developers.google.com/speed/libraries/-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Второй способ скачать с официального сайта официальный сайт: jQuery
+    в папку js/jquery-3.6.4.min.js  -->
+    <!-- <script src="js/jquery-3.6.4.min.js"></script> -->
+    
+    <!-- функционал нужно прописывать после подключения -->
+    <script>
+        // $("#block").hide();
+        // $("p.txt, #block").hide();
+        // $("div:not(:empty)").hide();
+        // $("div:empty").hide();
+        // $("div").last().hide(); // находим и прячем последний div
+        // $("div").next().hide(); // следующий после найденного
+        // $("span").prev().hide(); // предыдущий перед тэгом
+        jQuery(".block").parent().hide(); //родительский у тэга ".block"
+        $(".txt").children().hide(); // к дочернему у класса
+            
+        // анонимная ф. позволяет использовать и $ и jQuery
+        ;(function($, undefined) {
+            jQuery(".block").parent().hide(); //родительский у тэга ".block"
+        })(jQuery);
+    </script>
+    
+</body>
+</html>

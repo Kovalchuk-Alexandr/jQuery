@@ -1,0 +1,12 @@
+.test {
+  background: bisque;
+  border: 2px solid silver;
+  padding: 20px auto;
+  margin-bottom: 10px;
+}
+
+#block {
+  width: 100px;
+  background: bisque;
+  padding: 20px auto;
+}

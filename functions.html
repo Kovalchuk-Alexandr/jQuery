@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <link rel="stylesheet" href="css/func.css">
+</head>
+<body>
+
+    <div id="block">test</div>
+    <div style="background: green; padding: 10px;"></div>
+    <p class="txt">1</p>
+    <p class="txt">2</p>
+    <p class="txt">3</p>
+    <p class="txt">Text</p>
+    <span class="txt">4
+        <div class="block">div test</div>
+    </span><br>
+
+    <input type="text" value="Some">
+
+    <!-- Первый способ с  https://developers.google.com/speed/libraries/-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Второй способ скачать с официального сайта официальный сайт: jQuery
+    в папку js/jquery-3.6.4.min.js  -->
+    <!-- <script src="js/jquery-3.6.4.min.js"></script> -->
+    
+    <!-- функционал нужно прописывать после подключения -->
+    <script>
+        // анонимная ф. позволяет использовать и $ и jQuery
+        ;(function($, undefined) {
+            // $("#block").css("background", "silver"); // если нужно установить одно свойство
+            // $("#block").css({
+            //     "padding": "10px",
+            //     "width": "100px",
+            //     "height": "100px",
+            //     "border-radius": "5px",
+            //     "margin-bottom": "10px"
+            // });
+
+            // Если один параметр - получаем значение
+            // var padding = $("#block").css("padding");
+            // alert ("Padding: " + padding);
+
+            $("#block").addClass("test main"); // добавление класса
+            $("#block").removeClass("main"); // удаление класса
+
+            var isClass = $("#block").hasClass("test"); // проверка наличия класса
+            // alert("Is Class Exist? " + isClass);
+
+            var attr = $("div.block").attr("class");
+            // alert("Attr: " + attr);
+
+            // Добавляем атрибут id="newOne"
+            $("div.block").attr("id", "newOne");
+            
+            // Добавление нескольких атрибутов
+            $("div.block").attr({
+                "id": "nextOne",
+                "name": "name"
+            });
+
+            // Удаление атрибутa "name"
+            $("div.block").removeAttr("name");
+
+            // Устанавливаем свойство объекту
+            $("input").prop("disabled", true);
+
+            // Один параметр - получаем значение
+            // alert($("input").prop("disabled"));
+
+            $("p").hide(); // Прячем все тэги "p"
+            $("p").show(); // показываем все тэги "p"
+
+            // переключаем свойство:
+            // скрытый - показываем, видимый - скрываем
+            // $("p").toggle(); 
+            // $("p").slideUp(); // Скрытие с анимацией
+
+            $("div.block").hide();
+            $("div.block").slideDown(); // Плавное раскрытие (показывание) блока
+            $("div.block").slideToggle();
+
+            $("div.block").fadeIn(); // Плавно становится видимым
+            $("div.block").fadeOut("slow"); // (fast) Плавно скрывает объект
+            $("div.block").fadeToggle();
+
+            // alert($("input").width()); // hight() получаем ширину/высоту
+            alert($("input").val());
+
+            // Получаем только текст внутри
+            alert($(".block").text());
+            // даже, если так:
+            alert($("span.txt").text());
+
+            alert($("span.txt").html()); // Если нужно получить весь HTML
+
+            $("span.txt").text("Hi"); // полностью меняем содержимое
+
+            $("span.txt").text("<b>Hi</b>");
+            $("span.txt").html("<b>Hi</b>");
+
+            // $("span.txt").empty(); // очищает содержимое
+            // $("span.txt").remove(); // полностью удаляет
+
+            // ------------ Анимация -------------
+            $("#block").animate({
+                // "width": "200px",
+                "width": $("#block").width() + 200,
+                "height": "100px",
+                "border-radius": "20px",
+                "border": "1px solid gray"
+            }, 3000) // 3000 - время, мс (3 сек.)
+
+            // ------------ добавление новых объектов -------------
+            $("#block").append("<h3>Test H3</h3>"); // вставка после
+            $("#block").prepend("<h4>Test H4</h4>"); // вставка перед
+            $("#block").replaceWith("<h5>Test H5</h5>"); // замена
+
+            // Переставление объекта на новое место "после"
+            $("#block").after($("span.txt"));
+
+        })(jQuery);
+    </script>
+    
+</body>
+</html>
