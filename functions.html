@@ -40,18 +40,25 @@
             // });
 
             // Если один параметр - получаем значение
-            // var padding = $("#block").css("padding");
+            var padding = $("#block").css("padding");
             // alert ("Padding: " + padding);
 
+            var background = $("#block").css("background");
+            console.log("Background: " + background);
+
             $("#block").addClass("test main"); // добавление класса
+            // alert();
             $("#block").removeClass("main"); // удаление класса
 
             var isClass = $("#block").hasClass("test"); // проверка наличия класса
             // alert("Is Class Exist? " + isClass);
+            console.log("Is Class 'test' Exist? " + isClass);
 
+            // ----------- Работа  с атрибутами ------------------------
             var attr = $("div.block").attr("class");
             // alert("Attr: " + attr);
-
+            console.log("Attr: " + attr);
+            
             // Добавляем атрибут id="newOne"
             $("div.block").attr("id", "newOne");
             
@@ -60,6 +67,7 @@
                 "id": "nextOne",
                 "name": "name"
             });
+            // alert();
 
             // Удаление атрибутa "name"
             $("div.block").removeAttr("name");
@@ -79,27 +87,27 @@
             // $("p").slideUp(); // Скрытие с анимацией
 
             $("div.block").hide();
-            $("div.block").slideDown(); // Плавное раскрытие (показывание) блока
-            $("div.block").slideToggle();
+            // $("div.block").slideDown(); // Плавное раскрытие (показывание) блока
+            // $("div.block").slideToggle();
 
             $("div.block").fadeIn(); // Плавно становится видимым
             $("div.block").fadeOut("slow"); // (fast) Плавно скрывает объект
-            $("div.block").fadeToggle();
+            // $("div.block").fadeToggle();
 
             // alert($("input").width()); // hight() получаем ширину/высоту
-            alert($("input").val());
+            // alert($("input").val());
 
             // Получаем только текст внутри
-            alert($(".block").text());
+            // alert($(".block").text());
             // даже, если так:
-            alert($("span.txt").text());
+            // alert($("span.txt").text());
 
-            alert($("span.txt").html()); // Если нужно получить весь HTML
+            // alert($("span.txt").html()); // Если нужно получить весь HTML
 
             $("span.txt").text("Hi"); // полностью меняем содержимое
 
-            $("span.txt").text("<b>Hi</b>");
-            $("span.txt").html("<b>Hi</b>");
+            // $("span.txt").text("<b>Hi</b>");
+            // $("span.txt").html("<b>Hi</b>");
 
             // $("span.txt").empty(); // очищает содержимое
             // $("span.txt").remove(); // полностью удаляет
@@ -114,9 +122,9 @@
             }, 3000) // 3000 - время, мс (3 сек.)
 
             // ------------ добавление новых объектов -------------
-            $("#block").append("<h3>Test H3</h3>"); // вставка после
-            $("#block").prepend("<h4>Test H4</h4>"); // вставка перед
-            $("#block").replaceWith("<h5>Test H5</h5>"); // замена
+            // $("#block").append("<h3>Test H3</h3>"); // вставка после
+            // $("#block").prepend("<h4>Test H4</h4>"); // вставка перед
+            // $("#block").replaceWith("<h5>Test H5</h5>"); // замена
 
             // Переставление объекта на новое место "после"
             $("#block").after($("span.txt"));

@@ -66,7 +66,7 @@ header > .menu {
   font-size: 23px;
 }
 
-/* ***** Блок работы в шапкой:
+/* ***** Блок работы с шапкой:
   при скроле 50% вниз она фиксируется и появляется в обратном порядке */
 
 .fixed {
@@ -86,12 +86,16 @@ header > .menu {
 #hidden-menu {
   width: 250px;
   position: fixed; /* фиксируем положение меню при любом скроле */
-  top: 0;
+  top: 50xp;
   right: -250px;
-  height: 100vh;
-  background: #e6d0b3; /* antiquewhite ee9777*/
+  height: 50vh;
+  background: rgba(240, 229, 214, 0.7); /* antiquewhite ee9777*/
+  /* opacity: 0.7; */
   z-index: 10;
   text-align: center;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  /* background-color: #5f5858; */
 }
 
 /* Стили для кнопки "close" */
@@ -134,7 +138,7 @@ header > .menu {
 /* ***** Основная часть ************** */
 .full-page,
 .bg-fixed {
-  height: 95vh; /* 95vh - 95% высоты */
+  height: 95vh; /* 95vh - 95% высоты видимой части экрана */
   background: url("../img/main-bg.jpg") no-repeat center center;
   background-attachment: fixed; /* фиксированное положение картинки */
   background-size: cover; /* растягиваем на весь экран*/
@@ -192,12 +196,14 @@ header > .menu {
 .full-page button:hover img,
 .bg-fixed button:hover img {
   /* margin-left: 15px; */
-  position: relative;
-  right: -6px;
+  /* position: relative;
+  right: -6px; */
+  transform: translateX(8px);
 }
 
-.full-page button img {
-  transition: margin 600ms ease;
+.full-page button img,
+.bg-fixed button img {
+  transition: transform 550ms ease;
 }
 
 /* ***** Секция № 2 ************** */

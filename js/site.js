@@ -22,8 +22,17 @@ $(".up-btn").on("click", function () {
 // Обработчик нажатия кнопки "меню"
 $("#show-menu").on("click", function () {
     $("#hidden-menu").animate({
-        "right": 0
-    }, 500)
+        "right": 0,
+        function() {
+            // $("body").css("opacity", "0.7")
+        }
+    }, 500);
+    // $("body").css("opacity", "0.85")
+    // $("body").css("background", "rgba(240, 229, 214, 0.65)")
+    // $("body").css({
+    //     "background-blend-mode": "multiply",
+    //     "background": "rgba(59, 59, 59, 0.65)"
+    // })
 });
 
 // Обработчик нажатия кнопки "close"
@@ -31,6 +40,8 @@ $("#hidden-menu .close").on("click", function () {
     $("#hidden-menu").animate({
         "right": "-250px"
     }, 200)
+    // $("body").css("opacity", "1")
+    // $("body").css("background-blend-mode", "normal")
 });
 
 // Ждем, когда страница полностью загрузится

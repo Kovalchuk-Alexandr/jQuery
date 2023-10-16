@@ -46,20 +46,26 @@
             "margin": "10px"
         });
 
+
+        // Обычный обработчик
+        // function clickBtn() {
+        //     $("#block").toggle();
+        // }
+                
         // Обработчик jQuery
         // вешаем событие
         $("button.send").on("click", function(){
-            $("#block").fadeToggle();
-            // $("input").fadeToggle();
+            // $("#block").fadeToggle();
+            $("input").fadeToggle();
             // $("input").prop("disabled", true);
             // ------------ Анимация -------------
-            // $("#block").animate({
-            //     // "width": "200px",
-            //     "width": $("#block").width() + 50,
-            //     "height": "100px",
-            //     "border-radius": "20px",
-            //     "border": "1px solid gray"
-            // }, 3000); // 3000 - время, мс (3 сек.)
+            $("#block").animate({
+                // "width": "200px",
+                "width": $("#block").width() + 50,
+                "height": "100px",
+                "border-radius": "20px",
+                "border": "1px solid gray"
+            }, 3000); // 3000 - время, мс (3 сек.)
         })
 
         // удаляем событие
@@ -74,10 +80,7 @@
             $("#textShow").text(text);
         });
 
-        // Обычный обработчик
-        // function clickBtn() {
-        //     $("#block").toggle();
-        // }
+        
         // анонимная ф. позволяет использовать и $ и jQuery
         // ;(function($, undefined) {
         // })(jQuery);

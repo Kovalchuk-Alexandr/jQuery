@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Events</title>
+    <link rel="stylesheet" href="css/func.css">
+</head>
+<body>
+    <!-- <button onclick="clickBtn()" class="send">Lunch!!!</button> -->
+    <button class="send">Lunch!!!</button>
+    <button class="hide">Click to hide</button>
+    <button class="button" type="submit">Click to change prop</button>
+    <button class="changeP">Click to change 'P'</button>
+
+    <div id="some_block">Some block</div>
+    <div id="block">test</div>
+
+    <section>
+        <input type="text" value="Empty" class="text1">
+
+        <div id="textShow"></div>
+
+        <label for="checkBox">Check Box</label>
+        <input type="checkbox" class="disableCheck" id="checkBox" aria-describedby="checkBoxHelpBlock">
+
+        <button id="btn" title="Click to remove attr 'href'">Click Me!!!</button>
+        <a class="last_link" id="printA" href="some.html">Тест</a>
+
+        <div id="checkBoxHelpBlock" class="form-text"></div><br>
+    </section>
+    <form >
+        <input type="text" name="" id="text1">
+        <button id="btnError" type="button">Click me</button>
+        <div id="msgError"></div>
+    </form>
+    
+    <!-- Текстовое поле, в которое можно ввести максимум 25 символов -->
+    <form >
+        <label for="textarea">max 25 symbols available</label><br>
+        <textarea name="" id="textarea" cols="30" rows="5" style="resize: none;"></textarea><br>
+        
+        <div id="caption">
+                Осталось ( <span id="rchars"></span> ) символов
+        </div>
+    </form>
+
+    <!-- Форма обратной связи -->
+    <section class="callBackForm">
+        <center> <h2>Call Back Form</h2> </center>
+        <!-- Имя -->
+        <label for="name">Name</label>
+        <input type="text" class="text" id="callBackName" placeholder="Name">
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input type="email" class="text" id="email" placeholder="Email">
+        <!-- Телефон -->
+        <label for="telephone">Telephone</label>
+        <input type="telephone" class="text" id="telephone" placeholder="Phone">
+        <!-- Сообщение -->
+        <label for="textareaCallBack">Message</label>
+        <textarea class="text" name="" id="textareaCallBack" cols="30" rows="5" style="resize: none;"></textarea>
+
+        <div id="callBackCaption1">min 20, max 30 symbols available</div>
+        <!-- Разные варианты прогресс-баров -->
+        <progress id="barProgress" value="0" max="100"></progress>
+        <!-- meter -->
+        <meter id="meterProgress" value="" min="0" max=""><span id="meterVal"></span></meter><br>
+        <!-- Пользовательский на JS -->
+        <div id="myProgress">
+            <div id="myBar"></div>
+        </div>
+
+        <div id="callBackCaption">
+                Введено ( <span id="rchars"></span> ) символов
+        </div>
+
+
+        <!-- Сообщение об ошибке -->
+        <div id="msgFormError"></div>
+
+        <button type="button" class="btnFormSend">Send</button>
+
+        <hr>
+        <!-- Блок комментариев -->
+        <div class="comments">
+            <!-- <div class="msgItem" id="${msgId}">
+                <div class="msgHeader">
+                    <div class="msgTitle">Comments ${counter}</div>
+                    <div class="msgClose" onclick="msgItemFunction(this)">&#10006;</div>
+                </div>
+                <hr>
+                <div class="msgItemEmail"><strong>Email:</strong> ${email}</div>
+                <div class="msgItemName"><strong>Name:</strong> ${name}</div>
+                <div class="msgItemPhone"><strong>Telephone:</strong> ${telephone}</div>
+                <div class="message">${message}</div>
+                <hr>
+                <div class="msgDate">${newdate}</div>
+            </div> -->
+            </div>
+        </div>
+    </section>
+
+    <span class="littleTextBlock">A little text block with rounded corners</span>
+    <button class="hideText">Click to toggle text feild</button><br>
+    <button class="btnGrow" style="position: relative; left: 10px;">Click to move & Grow</button>
+
+    <div style="background: green; padding: 10px;"></div>
+    
+    <p class="txt txt1"> 1 Первый абзац</p>
+    <p class="txt txt2"> 2 Второй абзац</p>
+    <p class="txt txt3"> 3 Третий абзац</p>
+    <p id="txt"> 4 Четвертый абзац</p>
+    
+    <p class="txt">Text</p>
+    <span class="txt">4
+        <div class="block">div test</div>
+    </span><br>
+   
+    <hr>
+    <h4>При нажатии на кнопку текст в параграфах становится подчеркнутым</h4>
+    <button onclick="cursorWords('p')">Make underline</button>
+
+    <a href="#top" title="Click to go Top">Go Top</a>
+
+    <hr>
+    <p class="task">
+        Приложение Список дел
+        Получет данные из формы и добавляет в список. 
+        При нажатии на элемент, он удаляется из списка.
+    </p>
+    
+    <section id="toDoList" class="callBackForm">
+        <h2>To do list</h2>
+        <h4>Двойной щелчок по пункту для его удаления</h4>
+        <div class="inputFeild">
+            <input type="text" name="list_items">
+            <button id="button" type="button">Добавить</button>
+        </div>
+        <ol></ol>
+    </section>
+    
+
+    <!-- Первый способ с  https://developers.google.com/speed/libraries/-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Второй способ скачать с официального сайта официальный сайт: jQuery
+    в папку js/jquery-3.6.4.min.js  -->
+    <!-- <script src="js/jquery-3.6.4.min.js"></script> -->
+    
+    <!-- функционал нужно прописывать после подключения -->
+    <script>
+
+        function handlerName(e) {
+            alert(e.data.msg);
+        }
+        // <!-- Here data is passing along with a function in
+        //     bind method -->
+        $(document).ready(function () {
+            $("p.txt2").bind("click", {
+                msg: "You just clicked the paragraph!"
+            }, handlerName)
+        });
+
+        $(document).ready(function () {
+            $("p.txt3").bind("click", function() {
+                alert("Given paragraph was clicked.");
+            });
+        });
+
+        // При нажатии на надпись выводится новый параграф в 'body'
+        $("p.txt").bind("click", function(){
+            $("<p>На надпись было нажато</p>").appendTo("body");
+        });
+
+        // Отключение нажатия правой кнопки мыши
+        // Событие contextmenu вызывается при нажатии правой кнопкой мыши
+        $(document).bind("contextmenu",function(e){
+            // При нажатии правой кнопкой мыши мы просто возвращаем false,
+            // тем самым ничего не будет происходить при нажатии на правую клавишу мыши
+            return false; 
+        });
+
+
+        // Можно работать с главным объектом: document, window
+        // Делаем прелоадер (песочные часы, таймер), и когда все загружено
+        // вызываем $("document").ready и прячем прелоадер
+        // $("document").ready(function(){
+        //     alert("Hello");
+        // });
+        $("#block").css("background", "bisque"); // если нужно установить одно свойство
+        $("#block").css({
+            "padding": "10px",
+            "width": "100px",
+            "height": "100px",
+            "border-radius": "10px",
+            "margin": "10px"
+        });
+
+
+        // Обычный обработчик
+        // function clickBtn() {
+        //     $("#block").toggle();
+        // }
+                
+        // Обработчик jQuery
+        // переключаем видимоссть 'input' - поля и правой кнопки
+
+        $("button.send").on("click", function(){
+            // $("#block").fadeToggle();
+            $("input.text").fadeToggle("slow");
+            $("button.hide").slideDown("slow")
+            // $("input").prop("disabled", true);
+            // ------------ Анимация -------------
+            $("#block").animate({
+                // "width": "200px",
+                "width": $("#block").width() + 50,
+                "height": "100px",
+                "border-radius": "20px",
+                "border": "1px solid gray"
+            }, 3000); // 3000 - время, мс (3 сек.)
+        })
+
+        // Плавно скрываем кнопку
+        $("button.hide").on("click", function() {
+            $("button.hide").fadeOut("slow")
+        })
+
+        // Изменяем свойства при одинарном нажатии на кнопку
+        $(".button").on("click", function(){
+            $("#some_block").text("One Click");
+            $("#some_block").addClass("new_style");
+
+            console.log($("#some_block").attr("style"))
+            // console.log($("#some_block").attr())
+
+            if ($("#some_block").attr("style")){
+                // $("#some_block").removeAttr("style");
+                $("#some_block").animate({
+                    "font-size": "1em",
+                    "width": "30%",
+                    "background": "darkcyan"
+                }, 2000)
+            }
+        })
+
+        // Изменяем свойства при двойном нажатии на кнопку
+        $(".button").on("dblclick", function(){
+            $("#some_block").text("DBL Click");
+            // При нажатии на кнопку добавляем стили
+            // Добавляем сразу как массив со стилями
+            $('#some_block').animate({
+                "color": "#fff", 
+                "background": "grey",
+                "font-size": "1.1em",
+                "width": "50%",
+                "padding": "5%"
+            },3000);
+        })
+
+        // -----------   Работа со множеством элементов ------------------------
+        // При помощи jQuery возьмите значения из всех тегов «P» в HTML документе.
+        // К каждому тегу в конец текста добавьте точку.
+
+        // При помощи функции each перебираем все элементы,
+        // что удовлетворяют селектор - $('p')
+        $(".changeP").click(function() {
+            $("p").append(".");
+            $("p").each(function(index, element){
+                var object = $(this);
+                object.text('(' + object.text() + ')')
+            })
+            
+        })
+
+        // ------------------ Скрытие объекта --------------------------
+        // Проверяйте объект с идентификатором «menu» при нажатии на кнопку с 
+        // идентификатором «menuBtn».
+        // В случае если объект «menu» будет открыт, то вам необходимо его скрывать.
+        // В случае если скрыт, то объект необходимо показывать. 
+        // Важно: выполните задание без использования функции toggle().
+        // $('#menuShow').click (function () {
+        // Для проверки виден ли объект стоит использовать .is(':visible')
+        // if ($('#mobileMenu').is(':visible'))
+        //     $('#mobileMenu').hide ();
+        // else
+        //     $('#mobileMenu').show ();
+        // });
+
+
+        // При нажатии на кнопку добавляем стили
+        // Добавляем сразу как массив со стилями
+        // $('#some_block').css({
+        //     "color": "#fff", 
+        //     "background": "grey",
+        //     "font-size": "1.1em",
+        //     "width": "95%",
+        //     "padding": "5%"
+        // });
+
+        // Обработчик событий
+        $("p.txt1").on("click", function(){
+            let text = $("p.txt1").text()
+            $("p.txt1").text(text + " Some new text.")
+        })
+
+        $("p.txt1").bind("dblclick", function(){
+            $("p.txt1").text(" Double click")
+            $("<p>Double click</p>").appendTo("body")
+        })
+
+        $("p.txt1").on("mouseover", function(){
+            $("p.txt1").text("You mouse is over ")
+            $("<p>You mouse is over</p>").appendTo("body")
+        })
+
+        $("p.txt1").on("mouseout", function(){
+            $("p.txt1").text("You mouse is out ")
+            $("<p>You mouse is out</p>").appendTo("body")
+        })
+
+        // удаляем событие
+        // $("button.send").off("click");
+
+        // программный вызов события
+        // $("button.send").trigger("click");
+
+        $("input").on('keyup', function(){
+            var text = $("input").val();
+            // alert(text);
+            $("#textShow").text(text);
+        });
+
+
+        // ----------  Текстовое поле с максимом 25 символов  ------------------
+
+        var maxLength = 25;
+        var captHtml = $("#caption").html()
+        $("#textarea").on('keyup', function(){
+            // Отнимаем от максимальной длины текста
+	        // полученную длину текста из поля
+            var text = $(this).val();
+            let leftChars = maxLength - text.length;
+            // $("#rchars").text(leftChars);
+
+            // Отслеживаем количество символов в поле
+            // Если более или равно максимальному значению, 
+            // то обрезаем строку от 0 и до максимального количества символов
+            if($(this).val().length >= maxLength) {
+                console.log($("#caption").html());
+                console.log($("#caption").text())
+                $("#caption").css({
+                    "color": "#fff", 
+                    "background": "red",
+                    "font-size": "1.1em",
+                });
+                $("#caption").text("Maximum is reached!")
+                console.log("after: " + $("#caption").text())
+                $(this).val($(this).val().substring(0, maxLength));
+            } else {
+                $("#caption").html(captHtml);
+                $("#rchars").text(leftChars);
+                $("#caption").css({
+                    "color": "initial", 
+                    "background": "initial",
+                    "font-size": "1em",
+                    "text-align": "center"
+                });
+                console.log("captHtml " + $("#caption").html());
+                console.log($("capt text " + "#caption").text())
+            }
+        });
+
+        console.log($("a.last_link").attr("href"));
+
+        // ----------------  Печать страницы  ----------------------------------
+        //  Создайте ссылку, при нажатии на которую будет вызываться окно для
+        //  печати HTML страницы.
+        $("#printA").click(function(){
+            window.print(); // Вызов окна для печати
+	        return false; // Выход из функции чтобы ссылка не сработала сама по себе
+        })
+
+        // --------------------------------------------------------------------
+        // По нажатию кнопки удаляем атрибут ссылки и переключаем чек-бокс
+        // и свойство 'disabled'
+        $("#btn").click(function() {
+            let msgChecked = '';
+            let msgDisabled = '';
+            let msg = '';
+            // let msg = 'checked - ' + msgChecked + " / " + "disabled - " + msgDisabled;
+            $(".last_link").removeAttr("href")
+                if ($(".disableCheck").prop("checked")) {
+                    msgChecked = "ON";
+                    // $("input.disableCheck").prop("checked",false);
+                } else {
+                    msgChecked = "OFF";
+                    // $("input.disableCheck").prop("checked",true);
+                };
+                // одной строкой
+                // return $("input.disableCheck").prop("checked")? false : true;
+                // $("input.disableCheck").prop("disabled", function() {
+                // return $("input.disableCheck").prop("disabled")? false : true;
+
+                if ($(".disableCheck").prop("disabled")) {
+                    msgDisabled = "OFF";
+                    $(".disableCheck").prop("disabled",false) ;
+                } else {
+                    msgDisabled = "ON";
+                    $(".disableCheck").prop("disabled",true) ;
+                }
+
+            msg = 'checked - ' + msgChecked + " / " + "disabled - " + msgDisabled;
+            $("#checkBoxHelpBlock").text(msg);
+        });
+
+        setInterval(()=> {
+                $("#checkBoxHelpBlock").fadeToggle();
+            }, 2500);
+
+        $(document).ready(function() {
+            $("head").append("<link href='/css/style.css' rel='stylesheet' />");
+        });
+
+        // ---------------- Изменение заголовка ---------------------------------
+        // Создайте функцию, что сделает мигающий title для страницы. 
+        // Эту переменную будет сверять в условиях
+        var isOldTitle = true;
+        // Старый title
+        var oldTitle = "Programming";
+        // Новый title
+        var newTitle = "Community itProger"
+
+        function changeTitle() {
+            // Меняем title в зависимости от переменной
+            document.title = isOldTitle ? oldTitle : newTitle;
+            // В конце ф. меняем значение переменной на противоположное
+            isOldTitle = !isOldTitle;
+        }
+
+        // Указываем интервал, чтобы ф. вызывалась каждые 700 миллисекунд.
+        setInterval(changeTitle, 700);
+
+        
+        $("button.changeP").click(function(){
+            $("<p class='block'>Неприментый блок</p>").appendTo("body")
+            // var div = $("<p></p>");
+            // div.text("Неприметный блок");
+            // div.addClass("block");
+            // div.insertAfter("button");
+        });
+
+        // --------------------------------------------------------------------
+        // При нажатии на поле «input» выполните изменение к атрибутам:
+        // Добавьте атрибут «placeholder» со значением «Введите текст»;
+        // Добавьте атрибут «title» со значением «Красивое поле»;
+        // Удалите атрибут «value».
+        $("input.text1").click(function(){
+            // Установка новых атрибутов
+            $(this).attr({
+                "placeholder" : "Input a text",
+                "title" :  "Nice feild",
+            })
+            // Удаление атрибута
+            $(this).removeAttr("value")
+        })
+
+        // --------------------------------------------------------------------
+        // Создайте форму, что будет вмещать в себе одно текстовое поле, кнопку,
+        // а также пустой тег «span» для вывода внутри него сообщения с ошибкой.
+        // При нажатии на кнопку должна происходить проверка поля. Если количество
+        // введенных символом меньше 10, то в теге «span» должна выводиться текстовая
+        // надпись «Ошибка». Если же пользователь введет необходимое количество символов,
+        // то содержимое тега «span» должно становиться пустым.
+        var maxLength = 10;
+        $("#btnError").click(function(){
+            var text = $("input#text1").val();
+            // console.log(text);
+            // $("#msgError").text(text);
+            // alert("Hello");
+            if (text.length < maxLength){
+                $("#msgError").text("Error");
+             } else {
+                $("#msgError").empty();
+            }
+        })
+
+        // --------------- Функция скролла ---------------------------------------
+        // Создайте функцию, что будет скролить страницу к самому верху при нажатии на ссылку:
+        // Обрабатываем нажатие на ссылку
+        $("a[href='#top']").on('click', function() { 
+            // Используем функцию animate для плавного скролла
+            // Используем свойство scrollTop и значение 0,
+            // чтобы поднять пользователя на самый вверх.
+            // Также в качестве скорости указываем значение 500 миллисекунд
+            $("html, body").animate({ scrollTop: 0 }, 500); 
+            // Чтобы ссылка не сработала, то возвращаем значение false
+            return false; 
+        });
+
+        // -----------  Мигание текста ---------------------------------------
+        // Создайте мигающий текст при помощи jQuery.
+        // Пояснение: текст должен становиться прозрачным и через несколько миллисекунд
+        //  снова видимым. Так должно происходить постоянно.
+        function blink_text() { 
+            // Делаем текст прозрачным (500 миллисекунд)
+            $('.blink').fadeOut(500); 
+            // Делаем не прозрачным (еще 500 миллисекунд)
+            $('.blink').fadeIn(500); 
+        } 
+
+        // Вызываем функцию в интервале 1000 миллисекунд
+        setInterval(blink_text, 1000);
+        
+        // ------------------  Фиксированное меню ----------------------------------
+        // Пропишите функцию, что будет добавлять класс «fixed» к тегу «header». 
+        // Класс должен добавляться в случае если пользователь проскролил 
+        // от верха страницы более чем 10 пикселей + высота тега «header».
+        // Дополнение: функция должна срабатывать только при ширине экрана
+        //  более чем 750px.
+        // Функция срабатывает лишь при скролле
+        $(document).scroll (function () {
+            // Если ширина экрана более 750 пикселей
+            if ($(document).width () > 750) {
+                // Проверяем как много проскроллил пользователь
+                if ($(document).scrollTop () > $('header').height () + 10)
+                    // Если более чем высота шапки + 10 пикселей,
+                    // то добавляем класс к шапке
+                    $('header').addClass ('fixed');
+                else
+                    // Иначе удаляем класс
+                    $('header').removeClass ('fixed');
+            }
+        });
+
+        // ------ Появление/исчезновение объекта при нажатии на кнопку ---------
+        // Для создания такого эффекта вам потребуется использовать метод fadeToggle()
+        // с указанием времени анимации:
+        $('#button_click').on("click", function () {
+            $("#hide_text").fadeToggle(1500);
+            // Анимация будет длиться 1,5 секунды
+        });
+
+        // -----------------  Анимация сворачивания -----------------------------
+        // Создайте блок с текстом: <div>Небольшой блок с текстом</div>
+        // При нажатии на него скройте текст с эффектом сворачивания вверх.
+        // Скорость для эффекта установите как 2 секунды.
+        $(".littleTextBlock").click(function(){
+            $(this).slideUp(2000);
+        })
+
+        $(".hideText").click(function(){
+            $(".littleTextBlock").fadeToggle(2000);
+        })
+
+        var isGrow = true;
+        var txtGrow = "Click to move & Grow";
+        var txtGrowDown = "Click to move & Grow Down"
+        $(".btnGrow").click(function(){
+            console.log(isGrow);
+            if (isGrow) {
+                // $.when(
+                //     $(this).animate({
+                //     // "left": $(".btnGrow").css("left") + "100px",
+                //     "margin-left": "+=100px",
+                //     "height": "100px",
+                //     "width": "300px",
+                //     "font-size": "1.2em"
+                // },2000),
+                // $.ready
+                // ).done(function(){
+                //     $(this).text(txtGrowDown);
+                // });
+
+                $(this).animate({
+                    opacity: 0.6,
+                    left: "+=100",
+                    top: "-=100",
+                    height: "+=50px",
+                    width: "+=150px",
+                    "font-size": "1.2em"
+                },2000, function(){
+                    $(this).text(txtGrowDown);
+                });
+            } else {
+                $(this).animate({
+                    opacity: 1,
+                    left: "-=100px",
+                    top: "+=100",
+                    height: "-=50px",
+                    width: "-=150px",
+                    "font-size": ".8em"
+                },2000,function(){
+                    $(this).text(txtGrow);
+                })
+            }
+            isGrow = !isGrow;
+        })
+
+        // --------------  Форма обратной связи  ------------------------------
+        // Проверка на заполненность всех полей. Если какое-либо поле не заполнено, то вывести соответсвующие оповещение;
+        // Проверить, есть ли в поле email значок собачки (@);
+        // Все ошибки выводить под формой (на фото есть пример);
+        // Если поле сообщение менее 50 символов или более 400, то выдавать ошибку;
+        // При успешной проверке формы сделайте все поля с зеленой обводкой, очистите их, а также на кнопке напишите "Готово".
+        // Проверки необходимо сделать на jQuery.
+        
+        // При первом изменении в текстовых полях формы, устанавливаем
+        // исходные значения кнопки, обводки полей и прогресс-бара
+        $(".callBackForm .text").change(function(){
+            var color = "2px solid silver";
+            // showError("callBackForm changed");
+            // Меняем текст на кнопке
+            $(".btnFormSend").text("Send");
+            $(".btnFormSend").css({
+                'background': '#f1a184',
+                color : 'initial'
+            })
+            $("#callBackName").css("border", color); // Меняем обводку
+            $("#email").css("border", color);
+            $("#telephone").css("border", color);
+            $("#textareaCallBack").css("border", color);
+
+            $("#barProgress").attr("value", 0);
+            $("#meterProgress").attr("value", 0);
+            $("#myBar").css({
+                "width": 0, 
+                "background-color": "#bf5858",
+                "font-size": ".8em",
+            });
+        })
+
+        // ----------  Текстовое поле с максимом 25 символов  ------------------
+        var minLength = 20;
+        var maxLength = 30;
+        var captHtml = $("#callBackCaption").html()
+        $("#textareaCallBack").on('keyup', function(){
+            var textLength = $(this).val().length;
+            var width = Math.round((textLength/maxLength) * 100)
+                // Отслеживаем количество символов в поле
+                // Если более или равно максимальному значению, 
+                // то обрезаем строку от 0 и до максимального количества символов
+                if(textLength >= maxLength) {
+                     $("#callBackCaption").css({
+                        "color": "#fff", 
+                        "text-shadow": "1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue",
+                        "font-size": "1.1em",
+                    });
+
+                    $("#myBar").css({
+                        "color": "#fff", 
+                        "background-color": "#bf5858",
+                        "font-size": ".8em",
+                        "border-top-right-radius": "20px",
+                        "border-bottom-right-radius": "20px"
+                    });
+                    
+                    $("#callBackCaption").text("Maximum is reached!")
+                    $(this).val($(this).val().substring(0, maxLength));
+                    width--
+                // }
+                } else if (textLength < minLength || textLength >= maxLength-5) {
+                    $("#myBar").css({
+                        "color": "#fff", 
+                        "background-color": "#bf5858",
+                        "font-size": ".8em",
+                    });
+                    $("#callBackCaption").html(captHtml).fadeIn("slow");
+                    $("#callBackCaption #rchars").text(textLength);
+                    $(this).val($(this).val().substring(0, maxLength));
+                    $("#callBackCaption").css({
+                        "color": "initial", 
+                        "background": "initial",
+                        "font-size": "1em",
+                        "text-align": "center",
+                        "text-shadow": "none"
+                    });
+                } 
+                else {
+                    $("#callBackCaption").html(captHtml).fadeIn("slow");
+                    $("#callBackCaption #rchars").text(textLength);
+                    $("#callBackCaption").css({
+                        "color": "initial", 
+                        "background": "initial",
+                        "font-size": "1em",
+                        "text-align": "center",
+                        "text-shadow": "none"
+                    });
+
+                    $("#myBar").css({
+                        "background": "#04aa6d",
+                    }); 
+                }
+                
+                if(width >= 1 && width <= 100)
+                    $("#myBar").css({width: width + "%"});
+
+                // $("#myProgress").text(textLength);
+
+                $("#barProgress").attr({
+                    value: textLength,
+                    max: maxLength
+                });
+
+                $("#barProgress").val(textLength);
+
+                $("#meterProgress").attr({
+                    high:28,
+                    low: 20,
+                    value: textLength,
+                    max: maxLength,
+                    // optimum: (maxLength + minLength)/2
+                });
+
+                $("#meterVal").text(textLength);
+        });
+
+
+        // Обработчик нажатия кнопки 'Send'
+        var counter = 0;
+        var comments = [];
+
+        // При загрузке добавляем в favFilmArr данные из LocalStorage
+        if (localStorage.getItem("comments") != undefined) {
+            // достаем из хранилища в архив
+            // вариант для извлечения объектов через JSON
+            comments = JSON.parse(localStorage.getItem("comments"));
+            // вариант для извленеия массивов
+            // comments = localStorage.getItem("comments").split(",");
+            msgInitial(comments); // показываем
+        }
+
+        $(".btnFormSend").click(function(){
+            var msgId = "msg" + (comments.length+1);
+            var comment = "Comment" + (comments.length+1);
+            var name = $("#callBackName").val(); // Принимаем все данные и записываем в переменные
+            var email = $("#email").val();
+            var telephone = $("#telephone").val();
+            var message = $("#textareaCallBack").val();
+
+            var error = ""; // Переменная для записи ошибки
+
+            // Если какие-то поля пустые, то записываем ошибку в переменную
+            if(name == "" || email == "" || telephone == "") // Проверка данных
+                error = "Не все поля заполнены";
+            else if (!email.includes('@')) // Проверка на наличие символа @
+                error = "Поле email заполнено неверно";
+            // Проверка на длину сообщения
+            else if(message.length < minLength || message.length >= maxLength)
+                error = `Длина сообщения должна быть в пределах от ${minLength} до ${maxLength} символов`;
+                
+            // Если переменная содержит текст, то есть ошибка и мы её выводим
+            if(error != "") {
+                // $("#msgFormError").show(); // Показываем поле
+                // $("#msgFormError").text(error); // Выводим ошибку
+                showError(error);
+                return false; // Выходим с функции
+            }
+
+            // Если не вышли с функции, значит ошибок нет
+            var date = new Date();
+            date = date.toString();
+            var newdate = date.substring(0,(date.indexOf("GMT")-1))
+
+            // --------  Добавление данных в массив  ------------------
+            comments.push({
+                id: msgId,
+                comment: comment,
+                name: name,
+                email: email,
+                telephone: telephone,
+                message: message,
+                date: newdate
+            });
+
+            msgInitial(comments);
+
+            // --------  Блок комментария  ------------------
+            // var msgId = `msg${++counter}`
+            
+            // var msgHtml = 
+            // `<div class="msgItem" id="${msgId}">
+            //     <div class="msgHeader">
+            //         <div class="msgTitle">${comment}</div>
+            //         <div class="msgClose" onclick="msgItemFunction(this)">&#10006;</div>
+            //     </div>
+            //     <hr>
+            //     <div class="msgItemEmail"><strong>Email:</strong> ${email}</div>
+            //     <div class="msgItemName"><strong>Name:</strong> ${name}</div>
+            //     <div class="msgItemPhone"><strong>Telephone:</strong> ${telephone}</div>
+            //     <div class="message">${message}</div>
+            //     <hr>
+            //     <div class="msgDate">${newdate}</div>
+            // </div>`
+            // $(msgHtml).prependTo($("div.comments"));
+
+            // $(".msgItemEmail").html("<strong>Email:</strong> " + email);
+            // $(".msgItemName").html("<strong>Name:</strong> " + name);
+            // $(".msgItemPhone").html("<strong>Telephone:</strong> " + telephone);
+            // $(".message").text(message);
+            // // $(".msgDate").text(date);
+            // $(".msgDate").text(newdate);
+            
+            
+            // Отображаем успешное добавление
+            var color = "3px solid #0f9959";
+            $("#callBackName").val(""); // Пустое значение
+            $("#callBackName").css("border", color); // Меняем обводку
+            
+            $("#email").val(""); // Пустое значение
+            $("#email").css("border", color);
+            
+            $("#telephone").val(""); // Пустое значение
+            $("#telephone").css("border", color);
+            
+            $("#textareaCallBack").val(""); // Пустое значение
+            $("#textareaCallBack").css("border", color);
+
+            $("#callBackCaption #rchars").text("");
+            
+            // Скрываем ошибку
+            $("#msgFormError").hide();
+            // Меняем текст на кнопке
+            $(".btnFormSend").text("Success");
+            $(".btnFormSend").css({
+                'background': '#0f9959',
+                color : 'white'
+            })
+
+        })
+
+        // Показываем ошибку
+        showError = (error) => {
+            $("#msgFormError").show();
+            // if(error === "") 
+            //      $("#msgFormError").text("Not all feilds completed!!!")
+            // else 
+            $("#msgFormError").text(error)
+
+            $("#msgFormError").css({
+                color: "red",
+                "font-size": "1.1em",
+                // "text-align": "center"
+                // "margin-left": "10%"
+            });
+        }
+
+        // Проходим по массиву с данными для сообщений и устанавливаем 'id'
+        // для 'Comment' и 'msgId', согласно номеру в массиве
+        function msgInitial(comments) {
+            // Очищаем блок 'comments' и заново заполняем из массива
+            $("div.comments").empty()
+            if(comments.length == 0)
+                showError("There is no any comments");
+            else {
+                for(var i = 0; i < comments.length; i++){
+                    // msgId = "msg" + (i+1);
+                    comments[i].id = msgId = "msg" + (i+1);
+                    comments[i].comment = comment = "Comment" + (i+1);
+                    name = comments[i].name;
+                    email = comments[i].email;
+                    telephone = comments[i].telephone;
+                    message = comments[i].message;
+                    date = comments[i].date
+
+                    var msgHtml = 
+                    `<div class="msgItem" id="${msgId}">
+                        <div class="msgHeader">
+                            <div class="msgTitle">${comment}</div>
+                            <div class="msgClose" onclick="msgItemFunction(this)">&#10006;</div>
+                        </div>
+                        <hr>
+                        <div class="msgItemEmail"><strong>Email:</strong> ${email}</div>
+                        <div class="msgItemName"><strong>Name:</strong> ${name}</div>
+                        <div class="msgItemPhone"><strong>Telephone:</strong> ${telephone}</div>
+                        <div class="message">${message}</div>
+                        <hr>
+                        <div class="msgDate">${date}</div>
+                    </div>`
+                    $(msgHtml).prependTo($("div.comments"));
+                }
+            }
+
+            // Сохранение на LocalStorage
+            // Не можем добавить прямо архив 'comments[]', т.к. localStorage
+            // хранит только простейшие типы: строки, числа,
+            // потому преобразовываем его в строку comments.join()
+            // вариант для хранения массивов
+            // localStorage.setItem("comments", comments.join());
+            
+            // вариант для хранения объектов через JSON
+            localStorage.setItem("comments", JSON.stringify(comments));
+        }
+        // Функция инициализации сообщений (вариант без массива, удаляетяс только сообщение, id не меняются)
+        // Проходим по всем сообщениями и актуализируем номера после событий
+        function msgUpdate() {
+            const listMsg = document.getElementsByClassName('msgItem');
+            text = "";
+            
+            showError(text += "listMsg.length: " + listMsg.length);
+            
+            for(let i = 0; i < listMsg.length; i++){
+                // Добавляем атрибут id="msg(Id)"
+                listMsg.item(i).setAttribute("id","msg"+(i+1));
+                var id = listMsg.item(i).id
+                var msgTitle = document.querySelector(`#${id}`);
+
+                text += i + " id: " + id
+                text += msgTitle.text
+                showError(text);
+                text += i + " cllassName: " +" " + listMsg.item(i).className + " | "
+                showError(text);
+                text += i + " msgTitle: " +" " + msgTitle + " | "
+                showError(text);
+                showError(text + "------------");
+            }
+        };
+
+        let text = "";
+        // Функция удаления сообщения при нажатии на 'x'
+        function msgItemFunction(element){
+            text="";
+            if(element.closest(".msgItem") != null) {
+                var idToDelete = element.closest(".msgItem").id;
+                var isDelete = confirm("Confirm deleting");
+                if(isDelete) {
+                    // добавляем в новый массив все, кроме помеченного на удаление
+                    comments = comments.filter((el) => el.id != idToDelete);
+                    msgInitial(comments);
+                    // element.closest(".msgItem").remove();
+                }
+            } else
+                return false;
+        }
+
+        // Находим нужный элемент по клику
+        // не работает, вызываем через 'onclick' в тэге
+        // $(".msgClose").click(function (event) {
+        //     alert("Hello in .msgClose")
+        //     let x = event.target;
+        //     text += "target " + x + "\n";
+        //     text += "Name: " + x.nodeName + "\n";
+        //     text += "Value: " + x.nodeValue + "\n";
+        //     text += "Type: " + x.nodeType;
+        //     // $("#msgFormError").text(text)
+        //     showError(text);
+        // });
+
+ 
+        // ----------  Пользовательский прогресс-бар  ------------------
+        var i = 0;
+        function move() {
+            if (i == 0) {
+                i = 1;
+                var elem = document.getElementById("myBar");
+                var width = 10;
+                var id = setInterval(frame, 10);
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                        i = 0;
+                    } else {
+                        width++;
+                        elem.style.width = width + "%";
+                        elem.innerHTML = width + "%";
+                    }
+                }
+                
+            }
+        }
+
+        // -----------------------------------------------------------------------------
+        // Подчёркнутый текст
+        // Создайте функцию, которая будет перебирать все параграфы и делать 
+        // подчёркнутыми все слова в параграфе. 
+        // Важно: сделайте чтобы подчеркнутыми были лишь слова. Пробелы не должны быть
+        // подчёркнутыми.
+        function cursorWords(id) {
+            $(id).each(function(index, element) {
+                // Разделяем текст по пробелам и получаем все слова
+                var text_words = $(element).text().split(' ');
+                
+                // Очищаем весь элемент и заполяем данными через функцию
+                $(element).empty().html(function() {
+                    // Перебираем все слова
+                    for (i = 0; i < text_words.length; i++)
+                        // Добавяем их, но делаем их подчёркнутыми
+                        $(element).append('<u>' + text_words[i] + '</u>' + " ");
+                });
+            })
+        }
+
+        // -----------------------------------------------------------------------------
+        // Создайте функцию, которая будет делать задний фон объекта белым,
+        //  а через 3 секунды сделает цвет прежним.
+        // Объект должен передаваться в функцию в качестве параметра.
+        $("body *").on("dblclick", function(element) { //index, element
+            // alert("hello")
+            // Разделяем названия классов по пробелам и получаем все слова
+            var text_class = element.target.className.split(' ');
+            var nodeName = element.target.nodeName
+            var target = "";
+
+            // Перебираем все слова
+            for (i = 0; i < text_class.length; i++)
+                target += "." + text_class[i];
+
+            if(target === ".btnGrow" || target === "input" ){
+                
+                return false
+            }
+
+            target = `${nodeName}${target}`
+            newColor(target)
+        })
+        
+        function newColor(id) {
+	    // Устанавливаем задний фон зеленым
+            $(id).css("background", "#04aa6d");
+            setTimeout(function () { // Вызываем таймер, который сработает через 3 секунды
+                // Удаляем атрибут style, так как он был создан при помощи метода css выше
+                $(id).removeAttr("style");
+            }, 3000);
+        }
+        
+        // -----------------  Приложение Список дел ----------------------------------
+        // Создайте приложение "Список дел". Приложение должно получать данные из формы
+        // и далее добавлять в список. 
+        // При двойном нажатии на элемент его необходимо удалять из списка.
+        $(document).ready(
+            function() {
+                $('#button').click(function() {
+                    // Получаем значение
+                    var toAdd = $('input[name=list_items]').val();
+                    
+                    if(toAdd == "") // Если значение в поле пустое, то ничего не делаем
+                        return false;
+                    
+                    //	Добавляем новый элемент в список
+                    $('ol').append('<li>' + toAdd + '</li>');
+                    $('input[name=list_items]').val("");
+                });
+                
+                // Обработчик нажатия на клавишу Enter (код этой кнопки 13)
+                $("input[name=list_items]").keyup(function(event){
+                    if(event.keyCode == 13)
+                        $("#button").click();
+                });
+                
+                // При двойном клике элемент исчезает (удаляется)
+                $(document).on('click', 'li', function(){
+                    $(this).fadeOut('slow');    
+                });
+            
+            }
+        );        
+
+        // анонимная ф. позволяет использовать и $ и jQuery
+        // ;(function($, undefined) {
+        // })(jQuery);
+    </script>
+    
+</body>
+</html>

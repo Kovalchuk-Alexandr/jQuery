@@ -1,12 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400&display=swap");
+
 .test {
-  background: bisque;
+  background: burlywood;
   border: 2px solid silver;
-  padding: 20px auto;
+  /* padding: 20px auto; */
   margin-bottom: 10px;
+  height: 50px;
 }
 
 #block {
   width: 100px;
   background: bisque;
-  padding: 20px auto;
+  padding: 10px;
+}
+
+p {
+  display: block;
+  padding: 20px;
+  width: 200px;
+  border: 2px solid green;
+  cursor: pointer;
+}
+
+p.task {
+  /* display: block; */
+  padding: 20px;
+  width: 75%;
+  border: 1px solid lightgray;
+  cursor: default;
+}
+
+/* #btnError,
+#btn,
+#button,
+.send,
+.hide,
+.changeP */
+button {
+  margin: 20px 0;
+  padding: 10px 20px;
+  width: auto;
+  background-color: #f1a184;
+  border-radius: 15px;
+  border: inset bisque;
+  cursor: pointer;
+  font-size: 0.8em;
+  font-family: "Roboto Slab", serif;
+}
+
+/* #btnError:hover,
+#btn:hover,
+#button:hover,
+.send:hover,
+.hide:hover,
+.changeP:hover*/
+button:hover {
+  border: outset;
+  background-color: chocolate;
+  color: beige;
+}
+
+.new_style {
+  color: #fff;
+  background: darkcyan;
+  font-size: 1em;
+  width: 30%;
+  margin: 5px;
+  padding: 5%;
+  border: 2px solid darkslategray;
+  border-radius: 15px;
+  /* color: #eee; */
+}
+
+#caption {
+  width: 200px;
+  padding: 5px;
+  background-color: initial;
+  color: initial;
+  text-align: center;
+}
+
+form,
+section {
+  /* min-width: 30%; */
+  width: 35%;
+  background: bisque;
+  border: 2px solid silver;
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  height: 120px;
+}
+
+.littleTextBlock {
+  /* width: 200px; */
+  font-size: 18px;
+  padding: 10px 20px;
+  text-align: center;
+  background-color: chocolate;
+  color: antiquewhite;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.callBackForm {
+  padding-left: 3%;
+  font-size: 1.1em;
+  height: auto;
+  box-shadow: 0 1px 0 1px #e5e7e8;
+}
+
+.callBackForm h2,
+#toDoList h2 {
+  /* display: inline-block; */
+  text-align: center;
+  /* margin-left: -4%; */
+  font-weight: lighter;
+  font-size: 1.4em;
+  font-family: "Roboto Slab", serif;
+  border-bottom: 2px solid #4786a3;
+  color: #4786a3;
+}
+
+.callBackForm input,
+.callBackForm > textarea {
+  display: block;
+  height: 20px;
+  width: 80%;
+  margin-bottom: 10px;
+  border: 2px solid silver;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.callBackForm > textarea {
+  height: 15%;
+  margin-bottom: 0px;
+}
+
+#callBackCaption,
+#callBackCaption1,
+#msgFormError {
+  width: auto;
+  padding: 2px;
+  font-family: "Roboto Slab", serif;
+  font-size: 0.9em;
+  background-color: initial;
+  color: initial;
+  text-align: center;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+.callBackForm > label {
+  margin-left: 2%;
+  /* color: #0f9959; */
+  font-size: 1.1em;
+  /* margin-left: 10px; */
+  color: #737272;
+  margin-bottom: 5px;
+  display: block;
+  font-family: "Roboto Slab", serif;
+  cursor: text;
+}
+
+/* To do List */
+#toDoList {
+  /* display: flex; */
+  align-items: baseline;
+  text-align: center;
+  min-width: 500px;
+}
+
+#toDoList h2 {
+  /* font-family: "Roboto Slab", serif;
+  font-weight: lighter; */
+  margin: 5px 28%;
+}
+
+.inputFeild {
+  width: 100%;
+}
+
+#toDoList input {
+  /* padding: 4px 15px 4px 5px; */
+  display: inline-block;
+  height: 20px;
+  width: 60%;
+  /* margin-bottom: 10px; */
+  border: 2px solid silver;
+  border-radius: 5px;
+  padding: 3px 10px;
+}
+
+#button {
+  /* display: inline-block; */
+  background-color: #458abe;
+  color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 2px;
+  margin-left: 3px;
+  padding: 5px 15px;
+}
+
+/* Прогресс */
+#barProgress {
+  height: 20px;
+  width: 85%;
+  /* border: 1px solid silver; */
+  border-radius: 15px;
+  font-family: "Roboto Slab", serif;
+  font-size: 0.7em;
+  background-color: #e0d3d3;
+  color: aquamarine;
+  /* display: block; */
+  /*margin-bottom: 10px;
+  padding: 5px 10px; */
+}
+
+#meterProgress {
+  height: 30px;
+  width: 85%;
+  /* border: 1px solid silver; */
+  /* border-radius: 15px; */
+  /* font-family: "Roboto Slab", serif;
+  font-size: 0.5em;
+  color: aquamarine; */
+  /* display: block; */
+  /*margin-bottom: 10px;*/
+  padding: 1px;
+}
+#meterVal {
+  font-family: "Roboto Slab", serif;
+  font-size: 0.5em;
+  color: #183a2f;
+}
+
+#msgFormError {
+  /* text-align: center; */
+  color: #bf5858;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.1em;
+  overflow-wrap: normal;
+  display: none; /* Делаем так, что изначально поле невидимое */
+}
+
+/* Пользовательский прогресс-бар */
+#myProgress {
+  width: 85%;
+  background-color: #e0d3d3;
+  border-radius: 20px;
+  /* text-align: center; */
+  margin-bottom: 3px;
+}
+
+#myBar {
+  /* width: 3%; */
+  height: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: #04aa6d;
+  /*text-align: center; /* To center it horizontally (if you want) */
+  line-height: 20px; /* To center it vertically */
+  color: white;
+  /* color:#bf5858 */
+  z-index: 5;
+}
+
+.msgItem {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.msgHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 97%;
+  padding: 2px auto;
+  text-align: center;
+}
+
+.msgTitle,
+.msgDate {
+  color: gray;
+  font-size: 0.8em;
+}
+
+.msgClose {
+  font-weight: bold;
+  cursor: pointer;
+}
+.msgDate {
+  text-align: end;
+  /* color:#04aa6d; */
 }
